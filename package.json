@@ -1,0 +1,23 @@
+{
+  "name": "aks-nodejs-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuyuji9000/aks-nodejs-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xuyuji9000/aks-nodejs-service/issues"
+  },
+  "homepage": "https://github.com/xuyuji9000/aks-nodejs-service#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
