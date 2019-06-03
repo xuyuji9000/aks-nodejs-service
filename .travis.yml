@@ -11,10 +11,10 @@ install:
   - npm install
 script:
   - npm run test
-  - docker build -t aks-nodejs-service .
-  - docker tag aks-nodejs-service $DOCKER_USERNAME/aks-nodejs-service
-  - docker push $DOCKER_USERNAME/aks-nodejs-service
-  - # build docker image
+  # - docker build -t aks-nodejs-service .
+  # - docker tag aks-nodejs-service $DOCKER_USERNAME/aks-nodejs-service
+  # - docker push $DOCKER_USERNAME/aks-nodejs-service
+  #- # build docker image
 
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
