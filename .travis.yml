@@ -10,8 +10,13 @@ install:
   - npm install
 script:
   - npm run test
+  - docker build -t aks-nodejs-service .
+  - docker tag aks-nodejs-service $DOCKER_USERNAME/aks-nodejs-service
+  - docker push $DOCKER_USERNAME/aks-nodejs-service
+  - # build docker image
 
 after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - mkdir ${HOME}/.kube
   - cp ./k8s/config.yaml ${HOME}/.kube/config
   - cd ${HOME}/.kube
@@ -19,7 +24,7 @@ after_success:
   - sed -i 's/KUBE_CLIENT_CERTIFICATE/'"$KUBE_CLIENT_CERTIFICATE"'/g' config
   - sed -i 's/KUBE_CLIENT_KEY/'"$KUBE_CLIENT_KEY"'/g' config
   - cd $TRAVIS_BUILD_DIR
-  - kubectl get pods
+
 #   - kubectl config set clusters.kubernetes-kube-group-e1ea0b.certificate-authority-data "$KUBE_CLUSTER_CERTIFICATE"
 # kubectl config set users.kubernetes-kube-group-e1ea0b-admin.client-certificate-data "$KUBE_CLIENT_CERTIFICATE"
 # kubectl config set users.kubernetes-kube-group-e1ea0b-admin.client-key-data "$KUBE_CLIENT_KEY"
