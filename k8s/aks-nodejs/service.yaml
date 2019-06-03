@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: aks-nodejs-service
+spec:
+  selector:
+    app: aks-nodejs
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 3000

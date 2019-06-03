@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aks-nodejs-deployment
+  labels:
+    app: aks-nodejs
+spec:
+  selector:
+    matchLabels:
+      app: aks-nodejs
+  template:
+    metadata:
+      labels:
+        app: aks-nodejs
+    spec:
+      containers:
+      - name: aks-nodejs
+        image: yogiman/aks-nodejs-service
+        ports:
+        - containerPort: 3000

@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: aks-nodejs-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  tls:
+  - hosts:
+    - aks-nodejs.lvmhda.com
+    secretName: lvmhda-cn-2020-06 
+  rules:
+  - host: aks-nodejs.lvmhda.cn
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: aks-nodejs-service
+          servicePort: 3000
