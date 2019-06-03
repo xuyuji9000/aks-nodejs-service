@@ -1,0 +1,19 @@
+---
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: KUBE_CLUSTER_CERTIFICATE
+    server: https://testkx-k8s-dns-06f75b5b.hcp.chinaeast2.cx.prod.service.azk8s.cn:443
+  name: "testkx-k8s"
+contexts:
+- context:
+    cluster: testkx-k8s
+    user: clusterUser_testkx-k8s_testkx-k8s
+  name: testkx-k8s
+current-context: testkx-k8s
+kind: Config
+users:
+- name: "clusterUser_testkx-k8s_testkx-k8s"
+  user:
+    client-certificate-data: KUBE_CLIENT_CERTIFICATE
+    client-key-data: KUBE_CLIENT_KEY
