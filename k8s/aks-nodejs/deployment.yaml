@@ -21,3 +21,8 @@ spec:
         env:
           - name: GREETING
             value: "Hello from nodejs."
+          - name: SECRET_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: password
