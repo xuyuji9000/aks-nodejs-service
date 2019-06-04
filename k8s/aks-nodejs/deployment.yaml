@@ -18,3 +18,6 @@ spec:
         image: yogiman/aks-nodejs-service
         ports:
         - containerPort: 3000
+        env:
+          - name: GREETING
+            value: "Hello from nodejs."
